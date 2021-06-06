@@ -7,9 +7,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ru.iddqdpwn.vkonkurse.databinding.ActivityMainBinding
-import ru.iddqdpwn.vkonkurse.db.GiveawayDatabase
+import ru.iddqdpwn.vkonkurse.local.db.GiveawayDatabase
 import ru.iddqdpwn.vkonkurse.ui.adapter.GiveawayAdapter
-import ru.iddqdpwn.vkonkurse.db.model.Giveaway
+import ru.iddqdpwn.vkonkurse.local.db.model.Giveaway
 import kotlin.coroutines.CoroutineContext
 import kotlin.random.Random
 

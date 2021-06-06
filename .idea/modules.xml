@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/VKonkurse.iml" filepath="$PROJECT_DIR$/.idea/modules/VKonkurse.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/VKonkurse.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/VKonkurse.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/VKonkurse.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/VKonkurse.core.iml" />
     </modules>
   </component>
 </project>

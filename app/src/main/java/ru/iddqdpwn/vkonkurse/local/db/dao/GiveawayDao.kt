@@ -1,8 +1,8 @@
-package ru.iddqdpwn.vkonkurse.db.dao
+package ru.iddqdpwn.vkonkurse.local.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import ru.iddqdpwn.vkonkurse.db.model.Giveaway
+import ru.iddqdpwn.vkonkurse.local.db.model.Giveaway
 
 @Dao
 interface GiveawayDao {

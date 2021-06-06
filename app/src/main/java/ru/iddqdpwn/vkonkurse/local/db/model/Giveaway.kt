@@ -1,4 +1,4 @@
-package ru.iddqdpwn.vkonkurse.db.model
+package ru.iddqdpwn.vkonkurse.local.db.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

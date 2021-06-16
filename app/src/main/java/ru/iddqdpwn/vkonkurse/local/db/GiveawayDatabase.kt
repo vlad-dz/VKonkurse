@@ -8,7 +8,8 @@ import ru.iddqdpwn.vkonkurse.local.db.model.Giveaway
 
 @Database(
     entities = [Giveaway::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class GiveawayDatabase : RoomDatabase() {
     abstract fun giveawayDao(): GiveawayDao

@@ -9,5 +9,5 @@ data class Giveaway(
     val link: String,
     val date: Long,
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0L
+    val id: Long? = null
 )

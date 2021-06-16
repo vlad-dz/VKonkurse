@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ru.iddqdpwn.vkonkurse.R
 import ru.iddqdpwn.vkonkurse.databinding.ItemGiveawayBinding
-import ru.iddqdpwn.vkonkurse.local.db.model.Giveaway
+import ru.iddqdpwn.vkonkurse.ui.model.Giveaway
 import kotlin.random.Random
 
 class GiveawayAdapter: RecyclerView.Adapter<GiveawayAdapter.GiveawayVH>() {

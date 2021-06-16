@@ -1,70 +1,30 @@
 package ru.iddqdpwn.vkonkurse.ui.activity
 
+import ru.iddqdpwn.vkonkurse.extension.activityBinding
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import ru.iddqdpwn.vkonkurse.R
 import ru.iddqdpwn.vkonkurse.databinding.ActivityMainBinding
-import ru.iddqdpwn.vkonkurse.local.db.GiveawayDatabase
-import ru.iddqdpwn.vkonkurse.ui.adapter.GiveawayAdapter
-import ru.iddqdpwn.vkonkurse.local.db.model.Giveaway
-import kotlin.coroutines.CoroutineContext
-import kotlin.random.Random
+import ru.iddqdpwn.vkonkurse.ui.viewmodel.ViewModelFactory
 
-class MainActivity: AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
-    val binding: ActivityMainBinding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
+    val viewModelFactory: ViewModelFactory by lazy {
+        ViewModelFactory(this)
     }
-    val giveawayAdapter: GiveawayAdapter by lazy {
-        GiveawayAdapter()
+
+    private val mainNavController: NavController by lazy {
+        findNavController(R.id.nav_host_fragment)
     }
-    val db by lazy {
-        GiveawayDatabase(this)
-    }
+
+    val binding: ActivityMainBinding by activityBinding()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        initViews()
+        //mainNavController.navigate(R.id.action_global_giveawayFr)
     }
 
-    private fun initViews() {
-        binding.apply {
-            rvGiveaway.adapter = giveawayAdapter
-
-            buttonAdd.setOnClickListener {
-                GlobalScope.launch {
-                    db.giveawayDao().insert(
-                        Giveaway(
-                            "title${Random.nextInt(0,1000)}",
-                            "link${Random.nextInt(0,1000)}",
-                            0L
-                        )
-                    )
-                    val giveaways = db.giveawayDao().getAllGiveaways()
-                    giveaways.let {
-                        runOnUiThread {
-                            giveawayAdapter.setList(it)
-                        }
-                    }
-                }
-            }
-            buttonGetAll.setOnClickListener {
-                GlobalScope.launch {
-                    val giveaways = db.giveawayDao().getAllGiveaways()
-                    giveaways.let {
-                        runOnUiThread {
-                            giveawayAdapter.setList(it)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
 }

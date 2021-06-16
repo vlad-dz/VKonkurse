@@ -1,7 +1,9 @@
 package ru.iddqdpwn.vkonkurse.ui.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
@@ -21,16 +23,19 @@ abstract class BaseFragment : Fragment() {
 //    val authViewModel by activityViewModels<AuthViewModel> { viewModelFactory }
 //    val profileViewModel by activityViewModels<ProfileViewModel> { viewModelFactory }
 
-    private val mainActivity: MainActivity by lazy { activity as MainActivity }
-    private val viewModelFactory: ViewModelFactory by lazy { mainActivity.viewModelFactory }
+//    private val mainActivity: MainActivity by lazy { activity as MainActivity }
+//    private val viewModelFactory: ViewModelFactory by lazy { mainActivity.viewModelFactory }
+//
+//    val giveawaysViewModel: GiveawaysViewModel by activityViewModels<GiveawaysViewModel> { viewModelFactory }
 
-    val giveawaysViewModel: GiveawaysViewModel by activityViewModels<GiveawaysViewModel> { viewModelFactory }
 
     open fun initViews(): ViewBinding? = null
 
     open fun postInitViews(): ViewBinding? = null
 
     open fun setObservers(lifecycleOwner: LifecycleOwner) {}
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

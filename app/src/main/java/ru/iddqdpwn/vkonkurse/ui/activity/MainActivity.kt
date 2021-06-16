@@ -1,6 +1,5 @@
 package ru.iddqdpwn.vkonkurse.ui.activity
 
-import ru.iddqdpwn.vkonkurse.extension.activityBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -16,15 +15,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val mainNavController: NavController by lazy {
-        findNavController(R.id.nav_host_fragment)
+        findNavController(R.id.host_container)
     }
 
-    val binding: ActivityMainBinding by activityBinding()
+    //val binding: ActivityMainBinding by activityBinding()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
-        //mainNavController.navigate(R.id.action_global_giveawayFr)
+        mainNavController.navigate(R.id.action_global_giveawayFr)
+
+        //Log.d("TAHG", "${findChildController()}")
     }
 
+//    private fun findChildController(): NavController? {
+//        val nestedNavHostFragment =
+//            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as? NavHostFragment
+//        return nestedNavHostFragment?.navController
+//    }
 }
